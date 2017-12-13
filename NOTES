@@ -1,0 +1,44 @@
+How to build a CLI gem:
+
+1. Plan your gem, imagine your interface
+2. Start with the project structure - google
+3. Start with the entry point - the file run
+4. Force that to build the CLI interface
+5. Stub out the interface
+6. Start making things real
+7. Discover objects
+8. Program
+
+- A command line interface for best bars in different areas of the Manhattan borough. Info is coming from
+https://www.theinfatuation.com/new-york/guides/the-manhattan-bar-directory
+
+user types manhattan-bar-directory
+
+Show a list of neighborhoods
+1. East Village
+2. West Village
+3. Greenwich Village
+4. Soho & Nolita
+5. Lower East Side & Chinatown
+6. Tribeca
+7. Financial District
+8. Flatiron/ Nomad
+9. Gramercy/ Murray Hill
+10. Chelsea
+11. Midtown East
+12. Midtown West
+13. Upper East Side
+14. Upper West Side
+15. Harlem, East Harlem, Morningside Heights
+16. Washington Heights/ Inwood
+
+Which neighborhood would you like to learn more about?
+
+What is a neighborhood?
+- A neighborhood has a name
+- A neighborhood has bars
+
+What is a bar?
+- A bar has a name
+- A bar has a description
+- A bar has a URL

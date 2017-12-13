@@ -27,6 +27,10 @@ class ManhattanBarDirectory::CLI
     16. Washington Heights/ Inwood
     DOC
     puts ""
+    @neighborhoods = ManhattanBarDirectory::Neighborhood.all
+    @neighborhoods.each.with_index(1) do |neighborhood, i|
+      puts "#{i}. #{neighborhood}"
+    end
   end
 
   def menu
@@ -34,42 +38,49 @@ class ManhattanBarDirectory::CLI
     while input != "exit"
       puts "Please enter the number of the neighborhood where you would like to drink, or type list to see the options again, or type exit to leave."
       input = gets.strip
-      case input
-      when "1"
-        puts "These are some great bars in the East Village:"
-      when "2"
-        puts "These are some great bars in the West Village:"
-      when "3"
-        puts "These are some great bars in Greenwich Village:"
-      when "4"
-        puts "These are some great bars in Soho & Nolita:"
-      when "5"
-        puts "These are some great bars in the Lower East Side & Chinatown:"
-      when "6"
-        puts "These are some great bars in Tribeca:"
-      when "7"
-        puts "These are some great bars in the Financial District:"
-      when "8"
-        puts "These are some great bars in Flatiron/ Nomad:"
-      when "9"
-        puts "These are some great bars in Gramercy/ Murray Hill:"
-      when "10"
-        puts "These are some great bars in Chelsea:"
-      when "11"
-        puts "These are some great bars in Midtown East:"
-      when "12"
-        puts "These are some great bars in Midtown West:"
-      when "13"
-        puts "These are some great bars in the Upper East Side:"
-      when "14"
-        puts "These are some great bars in the Upper West Side:"
-      when "15"
-        puts "These are some great bars in Harlem, East Harlem, & Morningside Heights"
-      when "16"
-        puts "These are some great bars in Washington Heights/ Inwood:"
-      when "list"
+
+      if input.to_i > 0
+        the_neighborhood = @neighborhoods[input.to_i - 1]
+        puts "#{the_neighborhood.name}"
+      elsif input == "list"
         list_neighborhoods
       else
+    #  case input
+    #  when "1"
+    #    puts "These are some great bars in the East Village:"
+    #  when "2"
+    #    puts "These are some great bars in the West Village:"
+    #  when "3"
+    #    puts "These are some great bars in Greenwich Village:"
+    #  when "4"
+    #    puts "These are some great bars in Soho & Nolita:"
+    #  when "5"
+    #    puts "These are some great bars in the Lower East Side & Chinatown:"
+    #  when "6"
+    #    puts "These are some great bars in Tribeca:"
+    #  when "7"
+    #    puts "These are some great bars in the Financial District:"
+    #  when "8"
+    #    puts "These are some great bars in Flatiron/ Nomad:"
+    #  when "9"
+    #    puts "These are some great bars in Gramercy/ Murray Hill:"
+    #  when "10"
+    #    puts "These are some great bars in Chelsea:"
+    #  when "11"
+    #    puts "These are some great bars in Midtown East:"
+    #  when "12"
+    #    puts "These are some great bars in Midtown West:"
+    #  when "13"
+    #    puts "These are some great bars in the Upper East Side:"
+    #  when "14"
+    #    puts "These are some great bars in the Upper West Side:"
+    #  when "15"
+    #    puts "These are some great bars in Harlem, East Harlem, & Morningside Heights"
+    #  when "16"
+    #    puts "These are some great bars in Washington Heights/ Inwood:"
+    #  when "list"
+    #    list_neighborhoods
+    #  else
         puts "Have you been drinking already? That's not one of our options! Type list or exit."
       end
     end
@@ -79,7 +90,7 @@ class ManhattanBarDirectory::CLI
     puts "Have fun and drink responsibly!"
   end
 
-  def print_bars(from_neighborhood)
+  def list_bars(from_neighborhood)
     puts ""
     puts "---------- Bars in #{from_neighborhood} ----------"
     puts ""
