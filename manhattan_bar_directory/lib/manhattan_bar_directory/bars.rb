@@ -1,9 +1,19 @@
 class ManhattanBarDirectory::Bars
-    attr_accessor :name, :description, :location 
+    attr_accessor :name, :description, :location
+
     @@all = []
 
-    def self.new_from_page(bar)
+    def initialize(bar_hash)
+     bar_hash.each {|attrib, value| self.send("#{attrib}", value)}
+     @@all << self
+   end
 
-    end
+   def self.create_from_collection(bars_array)
+     bars_array.each {|bar_hash| self.new(bar_hash)}
+   end
+
+   def self.all
+      @@all
+   end
 
 end
