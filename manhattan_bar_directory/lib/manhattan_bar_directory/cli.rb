@@ -61,7 +61,7 @@ class ManhattanBarDirectory::CLI
 
     if from_neighborhood.to_i == 1
       puts ""
-      puts "---------- Bars in #{from_neighborhood} ----------"
+      puts "---------- Bars ----------"
       puts ""
       @bars.each.with_index(1) do |bar, i|
         if (i > 15)
