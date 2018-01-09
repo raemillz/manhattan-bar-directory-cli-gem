@@ -1,8 +1,8 @@
 # ManhattanBarDirectory
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/manhattan_bar_directory`. To experiment with that code, run `bin/console` for an interactive prompt.
+This Ruby Gem provides a CLI to view the some of the best bars in Manhattan, NY as per the Infatuation website.
 
-TODO: Delete this and the text above, and describe your gem
+
 
 ## Installation
 
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the below and follow the on screen prompts.
+
+$ manhattan_bar_directory
 
 ## Development
 
