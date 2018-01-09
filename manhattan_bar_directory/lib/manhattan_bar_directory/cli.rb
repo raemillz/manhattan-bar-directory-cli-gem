@@ -11,9 +11,13 @@ class ManhattanBarDirectory::CLI
     make_bars
     puts "Welcome to a directory of some of the best bars in Manhattan!"
     puts ""
+    start
+  end
+
+  def start
     list_neighborhoods
     menu
-    puts "Type the number of the bar that you would like more informatin on, or 'list' to view the neighborhoods again"
+    puts "Type the number of the bar on which you'd like more information."
     input = gets.strip
     bar = ManhattanBarDirectory::Bars.find(input.to_i)
     selection(bar)
@@ -44,15 +48,12 @@ class ManhattanBarDirectory::CLI
         puts ""
         list_bars(input)
       elsif input.to_i > 16
+        puts ""
         puts "Have you been drinking already? That's not one of our options!"
         puts ""
         puts "Type the number of the neighborhood where you would like to explore."
-        puts ""
+      menu
       end
-  end
-
-  def goodbye
-    puts "Have fun and drink responsibly!"
   end
 
   def list_bars(from_neighborhood)
@@ -181,6 +182,19 @@ class ManhattanBarDirectory::CLI
       puts "#{bar.name} - #{bar.location}"
       puts "Description: #{bar.description}"
       puts ""
+  end
+
+  def goodbye
+    input = nil
+
+    puts "Would you like to view another bar? Enter Y or N."
+    input = gets.strip.downcase
+    if input == "y"
+      start
+    else
+      puts "--------------------------------"
+      puts "Have fun and drink responsibly!"
+    end
   end
 
 end
