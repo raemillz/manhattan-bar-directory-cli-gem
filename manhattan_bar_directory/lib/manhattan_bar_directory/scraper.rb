@@ -21,7 +21,8 @@ class Scraper
     doc.css(".spot-block").each do |bar|
       name = bar.css("a h3").text
       description = bar.css(".spot-block__description p").text
-        bars << {name: name, description: description}
+      location = bar.css(".spot-block__neighborhoods").text.strip
+        bars << {name: name, description: description, location: location}
       end
     bars
   end

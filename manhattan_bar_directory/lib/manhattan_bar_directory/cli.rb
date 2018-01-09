@@ -13,6 +13,10 @@ class ManhattanBarDirectory::CLI
     puts ""
     list_neighborhoods
     menu
+    puts "Type the number of the bar that you would like more informatin on, or 'list' to view the neighborhoods again"
+    input = gets.strip
+    bar = ManhattanBarDirectory::Bars.find(input.to_i)
+    selection(bar)
     goodbye
   end
 
@@ -29,24 +33,22 @@ class ManhattanBarDirectory::CLI
       puts "#{i}. #{neighborhood}"
     end
     puts ""
-    puts "Type the number of the neighborhood you would like more information on, list to see the options again, or exit to leave."
+    puts "Type the number of the neighborhood you would like more information on."
   end
 
   def menu
-    input = nil
-    while input != "exit"
       puts ""
       input = gets.strip
 
       if input.to_i > 0 && input.to_i < 17
         puts ""
         list_bars(input)
-      elsif input == "list"
-        list_neighborhoods
-      elsif input != "list" && input.to_i > 16
-        puts "Have you been drinking already? That's not one of our options! Type list or exit."
+      elsif input.to_i > 16
+        puts "Have you been drinking already? That's not one of our options!"
+        puts ""
+        puts "Type the number of the neighborhood where you would like to explore."
+        puts ""
       end
-    end
   end
 
   def goodbye
@@ -54,58 +56,131 @@ class ManhattanBarDirectory::CLI
   end
 
   def list_bars(from_neighborhood)
-    #@bars = ManhattanBarDirectory::Bars.all
+    @bars = ManhattanBarDirectory::Bars.all
 
     if from_neighborhood.to_i == 1
       puts ""
       puts "---------- Bars in #{from_neighborhood} ----------"
       puts ""
-      ManhattanBarDirectory::Bars.all.each do |bar|
-        puts "#{bar.name}"
-      end
-      #@bars
-      #.each.with_index(1) do |bar, i|
-      #  if (i > 15)
-      #    break;
-      #    end
-      #    puts "#{i}. #{bar}"
-      #  end
-
-      elsif from_neighborhood.to_i == 2
-        @bars.drop(15).each.with_index(1) do |bar, i|
-          if (i > 13)
-            break;
+      @bars.each.with_index(1) do |bar, i|
+        if (i > 15)
+          break;
           end
-          puts "#{i}. #{bar}"
+          puts "#{i}. #{bar.name}"
+        end
+    elsif from_neighborhood.to_i == 2
+      @bars.drop(15).each.with_index(16) do |bar, i|
+        if (i > 28)
+          break;
+          end
+          puts "#{i}. #{bar.name}"
         end
       elsif from_neighborhood.to_i == 3
-        @bars.drop(28).each.with_index(1) do |bar, i|
-          if (i > 7)
+        @bars.drop(28).each.with_index(29) do |bar, i|
+          if (i > 35)
             break;
           end
-          puts "#{i}. #{bar}"
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 4
+        @bars.drop(35).each.with_index(36) do |bar, i|
+          if (i > 46)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 5
+        @bars.drop(46).each.with_index(47) do |bar, i|
+          if (i > 60)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 6
+        @bars.drop(60).each.with_index(61) do |bar, i|
+          if (i > 66)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 7
+        @bars.drop(66).each.with_index(67) do |bar, i|
+          if (i > 69)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 8
+        @bars.drop(69).each.with_index(70) do |bar, i|
+          if (i > 81)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 9
+        @bars.drop(81).each.with_index(82) do |bar, i|
+          if (i > 91)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 10
+        @bars.drop(91).each.with_index(92) do |bar, i|
+          if (i > 98)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 11
+        @bars.drop(98).each.with_index(99) do |bar, i|
+          if (i > 104)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 12
+        @bars.drop(104).each.with_index(105) do |bar, i|
+          if (i > 116)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 13
+        @bars.drop(116).each.with_index(117) do |bar, i|
+          if (i > 122)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 14
+        @bars.drop(122).each.with_index(123) do |bar, i|
+          if (i > 129)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 15
+        @bars.drop(129).each.with_index(130) do |bar, i|
+          if (i > 139)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
+        end
+      elsif from_neighborhood.to_i == 16
+        @bars.drop(139).each.with_index(140) do |bar, i|
+          if (i > 144)
+            break;
+          end
+          puts "#{i}. #{bar.name}"
         end
       end
     puts ""
-    puts "Type the number of bar you would like more information on."
-
-  #  puts "---------- Bars in #{from_neighborhood} ----------"
-  #  puts ""
-  #  ManhattanBarDirectory::Bars.all#[from_neighborhood.to_i-1].each.with_index(from_neighborhood) do |bar, index|
-      #puts "#{index}. #{bar.name}"
-    #end
   end
 
-  def print_bar(bar)
-    puts ""
-puts "----------- #{bar.name} -----------"
-puts ""
-puts "Location:           #{restaurant.location}"
-puts ""
-puts "---------------Description--------------"
-puts ""
-puts "#{restaurant.description}"
-puts ""
+  def selection(bar)
+      puts "#{bar.name} - #{bar.location}"
+      puts "Description: #{bar.description}"
+      puts ""
   end
 
 end

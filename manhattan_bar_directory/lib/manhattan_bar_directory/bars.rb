@@ -4,7 +4,7 @@ class ManhattanBarDirectory::Bars
     @@all = []
 
     def initialize(bar_hash)
-     bar_hash.each {|attrib, value| self.send("#{attrib}", value)}
+     bar_hash.each {|attrib, value| self.send("#{attrib}=", value)}
      @@all << self
    end
 
@@ -14,6 +14,10 @@ class ManhattanBarDirectory::Bars
 
    def self.all
       @@all
+   end
+
+   def self.find(id)
+     self.all[id-1]
    end
 
 end
